@@ -24,42 +24,6 @@ PRODUCT_COPY_FILES += \
 TARGET_SCREEN_HEIGHT := 2400
 TARGET_SCREEN_WIDTH := 1080
 
-# Camera
-PRODUCT_PACKAGES += \
-    libpiex_shim
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/camera/camera_cnf.txt:$(TARGET_COPY_OUT_VENDOR)/etc/camera/camera_cnf.txt
-
-PRODUCT_PACKAGES += \
-    libMegviiFacepp-0.5.2 \
-    libmegface
-
-# Device-specific settings
-PRODUCT_PACKAGES += \
-    XiaomiPartsVayu
-
-# Fingerprint
-PRODUCT_PACKAGES += \
-    libkeymaster_messages.vendor
-
-# Overlays
-DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lineage
-
-# QDCM
-PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/qdcm/,$(TARGET_COPY_OUT_VENDOR)/etc)
-
-# Shipping API level
-PRODUCT_SHIPPING_API_LEVEL := 30
-
-
-# Soong namespaces
-PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
-
 # Inherit from vendor blobs
 $(call inherit-product, vendor/xiaomi/vayu/vayu-vendor.mk)
 
@@ -253,6 +217,7 @@ endif
 # Device-specific settings
 PRODUCT_PACKAGES += \
     XiaomiDolby \
+    XiaomiPartsVayu \
     XiaomiParts
 
 # Display
@@ -522,6 +487,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.cdma.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.cdma.xml \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.gsm.xml
 endif
+
+# QDCM
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/qdcm/,$(TARGET_COPY_OUT_VENDOR)/etc)
 
 # Rootdir
 PRODUCT_PACKAGES += \
