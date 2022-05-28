@@ -76,6 +76,7 @@ vendor/lib/libhdmipassthru.so
 vendor/lib/libresampler.so
 vendor/lib/libssrec.so
 vendor/lib/libsurround_3mic_proc.so
+vendor/lib/libresampler.so
 vendor/lib/vendor.qti.hardware.audiohalext@1.0.so
 
 # Audio (ACDB loader)
