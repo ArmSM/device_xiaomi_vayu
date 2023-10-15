@@ -151,12 +151,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sysconfig/preinstalled-packages-platform-xiaomi-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/preinstalled-packages-platform-xiaomi-product.xml
 
 # Consumer IR
+ifneq ($(TARGET_IS_TABLET),true)
 PRODUCT_PACKAGES += \
     android.hardware.ir@1.0-impl \
     android.hardware.ir@1.0-service
-
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.consumerir.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.consumerir.xml
 
 # Device Parts
 PRODUCT_PACKAGES += \
@@ -224,6 +222,7 @@ PRODUCT_PACKAGES += \
     fastbootd
 
 # Fingerprint
+ifneq ($(TARGET_IS_TABLET),true)
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service.vayu \
     vendor.xiaomi.hardware.fingerprintextension@1.0.vendor \
@@ -257,6 +256,12 @@ PRODUCT_PACKAGES += \
      android.hardware.gnss@2.1-impl-qti \
      android.hardware.gnss@2.1-service-qti
 
+ifneq ($(TARGET_IS_TABLET),true)
+PRODUCT_PACKAGES += \
+    android.hardware.gnss@1.1.vendor \
+    android.hardware.gnss@2.1.vendor
+endif
+
 PRODUCT_PACKAGES += \
      liblocation_api \
      libgps.utils \
@@ -285,6 +290,12 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1.vendor
+
+ifneq ($(TARGET_IS_TABLET),true)
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.telephony.cdma.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.cdma.xml \
+    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.gsm.xml
+endif
 
 # HIDL
 PRODUCT_PACKAGES += \

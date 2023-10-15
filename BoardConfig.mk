@@ -168,6 +168,9 @@ TARGET_PRODUCT_PROP += $(DEVICE_PATH)/properties/product.prop
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/properties/system.prop
 TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/properties/system_ext.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/properties/vendor.prop
+ifneq ($(TARGET_IS_TABLET),true)
+TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor_phone.prop
+endif
 
 # Init
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_vayu
@@ -219,6 +222,9 @@ DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/vintf/manifest.xml
 ODM_MANIFEST_FILES := $(DEVICE_PATH)/configs/vintf/manifest-qva.xml
 ODM_MANIFEST_SKUS += vayu
 ODM_MANIFEST_VAYU_FILES := $(DEVICE_PATH)/configs/vintf/manifest_vayu.xml
+ifneq ($(TARGET_IS_TABLET),true)
+DEVICE_MANIFEST_FILE += $(COMMON_PATH)/manifest_phone.xml
+endif
 
 # VNDK
 BOARD_VNDK_VERSION := current
