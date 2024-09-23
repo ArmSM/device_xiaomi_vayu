@@ -104,6 +104,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libbluetooth_audio_session
 
+
+# Overlays
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay
+
 # Camera
 PRODUCT_PACKAGES += \
     android.frameworks.sensorservice@1.0.vendor \
@@ -277,6 +282,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
     android.hardware.health@2.1-service
+
+PRODUCT_PACKAGES += \
+    android.hardware.health@2.1.vendor
 
 # HIDL
 PRODUCT_PACKAGES += \
