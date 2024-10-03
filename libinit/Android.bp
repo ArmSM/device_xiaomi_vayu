@@ -23,3 +23,11 @@ cc_library_static {
     include_dirs: ["system/core/init"],
     recovery_available: true,
 }
+
+cc_library_static {
+    name: "init_xiaomi_vayu",
+    srcs: ["init_xiaomi_vayu.cpp"],
+    whole_static_libs: ["//device/xiaomi/vayu:libinit_xiaomi_msmnile"],
+    include_dirs: ["system/core/init"],
+    recovery_available: true,
+}
