@@ -95,6 +95,8 @@ endif
 # Init
 TARGET_INIT_VENDOR_LIB ?= //$(DEVICE_PATH):init_xiaomi_msmnile
 TARGET_RECOVERY_DEVICE_MODULES ?= init_xiaomi_msmnile
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):init_xiaomi_vayu
+TARGET_RECOVERY_DEVICE_MODULES := init_xiaomi_vayu
 
 # Kernel
 ifeq ($(TARGET_IS_VAB),true)
