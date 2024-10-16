@@ -23,3 +23,21 @@ android_app {
         proguard_flags_files: ["proguard.flags"],
     },
 }
+android_app {
+    name: "XiaomiPartsVayu",
+
+    srcs: ["src/**/*.java"],
+    resource_dirs: ["res"],
+    certificate: "platform",
+    platform_apis: true,
+    system_ext_specific: true,
+    privileged: true,
+
+    overrides: [
+        "XiaomiParts",
+    ],
+
+    static_libs: [
+        "org.lineageos.settings.resources",
+    ],
+}
