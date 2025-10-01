@@ -300,6 +300,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.default
+    $(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):libinit_vayu)
 
 # Input
 PRODUCT_COPY_FILES += \
